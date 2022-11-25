@@ -1,6 +1,6 @@
 # xctf.live
 
-Public www using just React and Chakra.
+Public www using just React Typescript and Chakra.
 
 v1.0 - early outlines and layout using Chakra
 
