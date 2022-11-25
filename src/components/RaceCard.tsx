@@ -1,54 +1,43 @@
-import { Box, Center, Heading, Text, Stack, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Heading,
+  Text,
+  Stack,
+  Image,
+  Link,
+} from "@chakra-ui/react";
 
 const IMAGE =
   "https://assets.sp.milesplit.com/articles/271222/images/new_project_(10).png";
 
 export default function RaceCard() {
   return (
-    <Center py={12}>
-      <Box
+    <Center>
+      <Link
         role={"group"}
-        p={6}
+        pb={5}
         w={"500px"}
-        bg={"gray.100"}
-        boxShadow={"lg"}
+        bgGradient="linear(to-tl, #182D4D, #151926, #182D4D)"
+        boxShadow={"s"}
         rounded={"xl"}
         pos={"relative"}
         zIndex={1}
+        _hover={{
+          bgGradient: "linear(to-tl, #182D4D, #5073A8)",
+          boxShadow: "lg",
+        }}
+        href={"https://results.leonetiming.com/xc.html?mid=5251"}
       >
-        <Box
-          rounded={"xl"}
-          mt={-12}
-          pos={"relative"}
-          height={"230px"}
-          _after={{
-            transition: "all .3s ease",
-            content: '""',
-            w: "full",
-            h: "full",
-            pos: "absolute",
-            top: 5,
-            left: 0,
-            backgroundImage: `url(${IMAGE})`,
-            filter: "blur(15px)",
-            zIndex: -1,
-          }}
-          _groupHover={{
-            _after: {
-              filter: "blur(20px)",
-            },
-          }}
-        >
-          <Image
-            rounded={"xl"}
-            height={230}
-            width={500}
-            objectFit={"cover"}
-            src={IMAGE}
-          />
-        </Box>
+        <Image
+          roundedTop={"xl"}
+          height={120}
+          width={500}
+          objectFit={"cover"}
+          src={IMAGE}
+        />
         <Stack pt={5} align={"center"}>
-          <Text color={"gray.500"} fontSize={"sm"} textTransform={"uppercase"}>
+          <Text color={"grays.300"} fontSize={"sm"} textTransform={"uppercase"}>
             Letchworth State Park
           </Text>
           <Heading
@@ -56,6 +45,7 @@ export default function RaceCard() {
             fontFamily={"body"}
             fontWeight={900}
             textTransform={"uppercase"}
+            color={"grays.100"}
           >
             2022 NYSPHAA XC Championships
           </Heading>
@@ -71,7 +61,7 @@ export default function RaceCard() {
             LIVE TODAY
           </Box>
         </Stack>
-      </Box>
+      </Link>
     </Center>
   );
 }

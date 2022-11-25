@@ -6,7 +6,7 @@ export default function HighlightedRaces() {
   return (
     <>
       {Subheading("Trending")}
-      <HStack spacing={10} overflow={"scroll"}>
+      <HStack spacing={10} overflow={"scroll"} scrollBehavior={"smooth"} mt={1}>
         <RaceCard />
         <RaceCard />
         <RaceCard />

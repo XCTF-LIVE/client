@@ -1,17 +1,23 @@
-import { Text, VStack, Image, HStack, Flex } from "@chakra-ui/react";
+import { Text, VStack, Image, HStack, Flex, Link } from "@chakra-ui/react";
 
 const IMAGE =
   "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png";
 
 export default function MiniRaceCard() {
   return (
-    <Flex
+    <Link
+      display={"flex"}
       justifyContent={"space-between"}
       alignItems={"center"}
       w={"100%"}
       p={5}
-      backgroundColor={"gray.200"}
+      bgGradient="linear(to-tl, #182D4D, #151926)"
       borderRadius={"xl"}
+      _hover={{
+        bgGradient: "linear(to-tl, #182D4D, #5073A8)",
+        boxShadow: "lg",
+      }}
+      href={"https://results.leonetiming.com/xc.html?mid=5251"}
     >
       <HStack>
         <Image h={10} objectFit={"cover"} src={IMAGE} />
@@ -21,10 +27,11 @@ export default function MiniRaceCard() {
             fontFamily={"body"}
             fontWeight={900}
             textTransform={"uppercase"}
+            color={"grays.100"}
           >
             2022 NYSPHAA XC Championships
             <Text
-              color={"gray.500"}
+              color={"grays.300"}
               fontSize={"xs"}
               textTransform={"uppercase"}
             >
@@ -43,8 +50,8 @@ export default function MiniRaceCard() {
         borderRadius={100}
         h={"min-content"}
       >
-        LIVE TODAY
+        LIVE •
       </Flex>
-    </Flex>
+    </Link>
   );
 }

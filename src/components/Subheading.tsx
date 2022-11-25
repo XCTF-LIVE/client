@@ -5,7 +5,7 @@ export default function Subheading(heading: string) {
     <Center pt={5}>
       <Heading
         fontWeight={900}
-        color={"gray.400"}
+        color={"grays.300"}
         textTransform={"uppercase"}
         fontSize={"lg"}
       >
