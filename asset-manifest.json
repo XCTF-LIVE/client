@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/xctf-live-page/static/css/main.073c9b0a.css",
+    "main.js": "/xctf-live-page/static/js/main.51e8444c.js",
+    "static/js/787.00161cbd.chunk.js": "/xctf-live-page/static/js/787.00161cbd.chunk.js",
+    "index.html": "/xctf-live-page/index.html",
+    "main.073c9b0a.css.map": "/xctf-live-page/static/css/main.073c9b0a.css.map",
+    "main.51e8444c.js.map": "/xctf-live-page/static/js/main.51e8444c.js.map",
+    "787.00161cbd.chunk.js.map": "/xctf-live-page/static/js/787.00161cbd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.51e8444c.js"
+  ]
+}
