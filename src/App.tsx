@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HighlightedRaces from "./components/HighlightedRaces";
 import DayRaces from "./components/DayRaces";
+import WIP from "./components/WIP";
 
 // 2. Call `extendTheme` and pass your custom values
 const theme = extendTheme({
@@ -44,6 +45,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Router>
+        <WIP />
         <Navbar />
         <HighlightedRaces />
         {DayRaces("Today")}
