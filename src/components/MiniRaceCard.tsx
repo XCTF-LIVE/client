@@ -11,10 +11,11 @@ export default function MiniRaceCard() {
       alignItems={"center"}
       w={"100%"}
       p={5}
-      bgGradient="linear(to-tl, #182D4D, #151926)"
+      bgColor="secondary.400"
       borderRadius={"xl"}
+      transitionDuration={"150ms"}
       _hover={{
-        bgGradient: "linear(to-tl, #182D4D, #5073A8)",
+        bgColor: "secondary.500",
         boxShadow: "lg",
       }}
       href={"https://results.leonetiming.com/xc.html?mid=5251"}

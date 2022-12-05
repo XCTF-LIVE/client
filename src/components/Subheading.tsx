@@ -1,6 +1,10 @@
 import { Heading, Center } from "@chakra-ui/react";
 
-export default function Subheading(heading: string) {
+interface SubheadingInput {
+  text: string;
+}
+
+export default function Subheading({ text }: SubheadingInput) {
   return (
     <Center pt={5}>
       <Heading
@@ -9,7 +13,7 @@ export default function Subheading(heading: string) {
         textTransform={"uppercase"}
         fontSize={"lg"}
       >
-        {heading}
+        {text}
       </Heading>
     </Center>
   );

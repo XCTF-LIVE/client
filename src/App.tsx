@@ -5,8 +5,12 @@ import Navbar from "./components/Navbar";
 import HighlightedRaces from "./components/HighlightedRaces";
 import DayRaces from "./components/DayRaces";
 import WIP from "./components/WIP";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-// 2. Call `extendTheme` and pass your custom values
+const API_URL = "http://localhost:8080/api/races";
+
+// theme
 const theme = extendTheme({
   styles: {
     global: (props: any) => ({
@@ -41,15 +45,28 @@ const theme = extendTheme({
   },
 });
 
-function App() {
+interface AppInput {
+  raceJSON: String;
+}
+
+function App({ raceJSON }: AppInput) {
+  const [raceData, setRaceData] = useState({});
+  useEffect(() => {
+    getRaces();
+  }, []);
+  const getRaces = async () => {
+    const response = await axios.get(API_URL);
+    setRaceData(response.data);
+  };
+  console.log(raceData);
   return (
     <ChakraProvider theme={theme}>
       <Router>
         <WIP />
         <Navbar />
-        <HighlightedRaces />
-        {DayRaces("Today")}
-        {DayRaces("Yesterday (11/23/22)")}
+        <HighlightedRaces races={raceData} />
+        <DayRaces title={"Today"} />
+        <DayRaces title={"Yesterday (11/23/22)"} />
       </Router>
     </ChakraProvider>
   );

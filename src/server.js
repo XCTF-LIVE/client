@@ -18,6 +18,7 @@ const client = new MongoClient(uri, {
 app.get("/", (req, resp) => {
   resp.send("xctflive mongodb");
 });
+
 app.get("/api/races", (req, resp) => {
   database
     .collection("races")

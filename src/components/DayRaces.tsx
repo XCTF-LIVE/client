@@ -2,10 +2,14 @@ import { VStack, Flex } from "@chakra-ui/react";
 import MiniRaceCard from "./MiniRaceCard";
 import Subheading from "./Subheading";
 
-export default function DayRaces(date: string) {
+interface DayRacesInput {
+  title: string;
+}
+
+export default function DayRaces({ title }: DayRacesInput) {
   return (
     <Flex flexFlow={"column"} alignItems={"center"}>
-      {Subheading(date)}
+      <Subheading text={title} />
       <VStack
         w={"70%"}
         p={5}
