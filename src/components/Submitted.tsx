@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Button, Flex, List, ListItem } from "@chakra-ui/react";
+import { Button, Flex, Link, List, ListItem } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import Subheading from "./Subheading";
@@ -27,9 +27,8 @@ const Sumbitted = () => {
       <Subheading text={"Submitted URLS"} />
       <List
         background={"secondary.500"}
-        w={"fit-content"}
+        w={"70%"}
         color={"white"}
-        pl={4}
         rounded={"lg"}
         m={"auto"}
       >
@@ -39,8 +38,19 @@ const Sumbitted = () => {
             display={"flex"}
             justifyContent={"space-between"}
             alignItems={"center"}
+            borderBottomWidth={"2px"}
+            pl={4}
+            borderBottomColor={"secondary.600"}
           >
-            {item.url + " "}
+            <Link
+              href={
+                /^https:\/\//.test(item.url) ? item.url : "https://" + item.url
+              }
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {item.url}
+            </Link>
             <Button
               background={"transparent"}
               color={"red"}
