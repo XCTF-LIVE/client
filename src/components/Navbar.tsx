@@ -74,7 +74,7 @@ export default function Navbar() {
             _hover={{
               backgroundColor: "secondary.800",
             }}
-            href={"#"}
+            href={"#ratings"}
             color={"grays.700"}
           >
             <FontAwesomeIcon icon={solid("person-running")} size={"lg"} />

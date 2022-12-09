@@ -4,7 +4,7 @@ import MiniRaceCard from "./MiniRaceCard";
 import Subheading from "./Subheading";
 import axios from "axios";
 
-export default function DayRaces() {
+export default function HighlightedRaces() {
   const [data, setData] = useState([]);
 
   useEffect(() => {

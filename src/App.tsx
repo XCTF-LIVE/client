@@ -2,11 +2,10 @@ import "./App.css";
 import { Box, Center, ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HighlightedRaces from "./components/HighlightedRaces";
-import DayRaces from "./components/DayRaces";
-import Form from "./components/Form";
-import Submimtted from "./components/Submitted";
 import Footer from "./components/Footer";
+import { useState, useEffect } from "react";
+import Home from "./pages/Home";
+import Ratings from "./pages/Ratings";
 
 // theme
 const theme = extendTheme({
@@ -43,21 +42,29 @@ const theme = extendTheme({
   },
 });
 
-interface AppInput {
-  raceJSON: String;
-}
+function App() {
+  const [page, setPage] = useState("");
 
-function App({ raceJSON }: AppInput) {
+  useEffect(() => {
+    const handleHashChange = () => {
+      const currentPage = window.location.hash.substring(1);
+      setPage(currentPage);
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
   return (
     <ChakraProvider theme={theme}>
       <Router>
         <Navbar />
         <Center>
           <Box maxW={"1000px"}>
-            <Form />
-            <HighlightedRaces />
-            <DayRaces />
-            <Submimtted />
+            {page === "" && <Home />}
+            {page === "ratings" && <Ratings />}
+            {page === "submit" && <Ratings />}
           </Box>
         </Center>
         <Footer />
