@@ -4,14 +4,19 @@ import MiniRaceCard from "./MiniRaceCard";
 import Subheading from "./Subheading";
 import axios from "axios";
 import { format } from "date-fns";
+import MiniRaceCardSkeleton from "./MiniRaceCardSkeleton";
 
 export default function DayRaces() {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/official").then((res) => {
-      setData(res.data);
-    });
+    axios
+      .get("http://localhost:4000/official")
+      .then((res) => {
+        setData(res.data);
+      })
+      .then(() => setIsLoading(false));
   }, []);
 
   let currentDate = new Date();
@@ -34,36 +39,69 @@ export default function DayRaces() {
     (group, index) => groups.indexOf(group) === index
   );
 
-  return (
-    <Box>
-      {uniqueGroups.map((group) => (
-        <Flex pt={"5"} flexFlow={"column"} alignItems={"center"}>
-          <Subheading
-            text={group === format(currentDate, "MMMM d, y") ? "Today" : group!}
-          />
-          <VStack
-            w={"70%"}
-            mt={1}
-            spacing={3}
-            overflow={"scroll"}
-            backgroundColor={"secondary.900"}
-            rounded={"xl"}
-          >
-            <List w={"100%"}>
-              {data
-                .filter(
-                  (item: any) =>
-                    format(new Date(item.date), "MMMM d, y") === group
-                )
-                .map((item: any) => (
-                  <ListItem key={item._id}>
-                    <MiniRaceCard item={item} />
-                  </ListItem>
-                ))}
-            </List>
-          </VStack>
-        </Flex>
-      ))}
-    </Box>
-  );
+  const ListComponent = () => {
+    return (
+      <>
+        {uniqueGroups.map((group) => (
+          <Flex pt={"5"} flexFlow={"column"} alignItems={"center"}>
+            <Subheading
+              text={
+                group === format(currentDate, "MMMM d, y") ? "Today" : group!
+              }
+            />
+            <VStack
+              w={"70%"}
+              mt={1}
+              spacing={3}
+              overflow={"scroll"}
+              backgroundColor={"secondary.900"}
+              rounded={"xl"}
+            >
+              <List w={"100%"}>
+                {data
+                  .filter(
+                    (item: any) =>
+                      format(new Date(item.date), "MMMM d, y") === group
+                  )
+                  .map((item: any) => (
+                    <ListItem key={item._id}>
+                      <MiniRaceCard item={item} />
+                    </ListItem>
+                  ))}
+              </List>
+            </VStack>
+          </Flex>
+        ))}
+      </>
+    );
+  };
+  const SkeletonComponent = () => {
+    let skeleData = [
+      1231231, 312, 234243242423, 344444, 4312, 92042, 123243242431231,
+      32394942912, 329493294234,
+    ];
+    return (
+      <Flex pt={"10"} flexFlow={"column"} alignItems={"center"}>
+        <Subheading text="Today" />
+        <VStack
+          w={"70%"}
+          mt={1}
+          spacing={3}
+          overflow={"scroll"}
+          backgroundColor={"secondary.900"}
+          rounded={"xl"}
+        >
+          <List w={"100%"}>
+            {skeleData.map((n: number) => (
+              <ListItem key={n}>
+                <MiniRaceCardSkeleton n={n} />
+              </ListItem>
+            ))}
+          </List>
+        </VStack>
+      </Flex>
+    );
+  };
+
+  return <Box>{isLoading ? <SkeletonComponent /> : <ListComponent />} </Box>;
 }

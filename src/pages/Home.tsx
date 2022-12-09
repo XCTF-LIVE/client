@@ -1,4 +1,5 @@
 import DayRaces from "../components/DayRaces";
+import Form from "../components/Form";
 import HighlightedRaces from "../components/HighlightedRaces";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <HighlightedRaces />
       <DayRaces />
+      <Form />
     </>
   );
 }

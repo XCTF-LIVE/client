@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import {
   Box,
@@ -59,13 +59,14 @@ export default function Form() {
       >
         <Subheading text={"Are we missing a race?"} />
         <Flex w={"70%"} m={"auto"}>
-          <InputGroup size="md" mt={"5"}>
+          <InputGroup size="md" mt={"5"} onSubmit={onSubmit}>
             <Input
               type="text"
               placeholder="Race URL"
               onChange={changeUrl}
               value={state.url}
               color={"white"}
+              onSubmit={onSubmit}
             />
             <InputRightElement pr={"2"}>
               <Button

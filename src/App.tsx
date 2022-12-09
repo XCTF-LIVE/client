@@ -45,11 +45,13 @@ const theme = extendTheme({
 function App() {
   const [page, setPage] = useState("");
 
+  const handleHashChange = () => {
+    const currentPage = window.location.hash.substring(1);
+    setPage(currentPage);
+  };
+
   useEffect(() => {
-    const handleHashChange = () => {
-      const currentPage = window.location.hash.substring(1);
-      setPage(currentPage);
-    };
+    handleHashChange();
     window.addEventListener("hashchange", handleHashChange);
     return () => {
       window.removeEventListener("hashchange", handleHashChange);
@@ -61,7 +63,7 @@ function App() {
       <Router>
         <Navbar />
         <Center>
-          <Box maxW={"1000px"}>
+          <Box w={"100%"} maxW={"1000px"}>
             {page === "" && <Home />}
             {page === "ratings" && <Ratings />}
             {page === "submit" && <Ratings />}

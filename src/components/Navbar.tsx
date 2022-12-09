@@ -11,10 +11,26 @@ import {
   MenuDivider,
   Input,
 } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default function Navbar() {
+  const [page, setPage] = useState("");
+
+  const handleHashChange = () => {
+    const currentPage = window.location.hash.substring(1);
+    setPage(currentPage);
+  };
+
+  useEffect(() => {
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
   return (
     <Flex
       bg={"secondary.900"}
@@ -49,7 +65,7 @@ export default function Navbar() {
               backgroundColor: "secondary.800",
             }}
             href={"#"}
-            color={"primary.400"}
+            color={page === "" ? "primary.400" : "grays.700"}
           >
             <FontAwesomeIcon icon={solid("house")} size={"lg"} />
           </Link>
@@ -75,7 +91,7 @@ export default function Navbar() {
               backgroundColor: "secondary.800",
             }}
             href={"#ratings"}
-            color={"grays.700"}
+            color={page === "ratings" ? "primary.400" : "grays.700"}
           >
             <FontAwesomeIcon icon={solid("person-running")} size={"lg"} />
           </Link>
