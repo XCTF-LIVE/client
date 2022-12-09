@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import {
   Box,
@@ -16,6 +16,20 @@ import { faShare } from "@fortawesome/free-solid-svg-icons";
 export default function Form() {
   const [state, setState] = useState({
     url: "",
+  });
+
+  function handleKeyDown(event: any) {
+    if (event.key === "Enter") {
+      if (state.url.length) {
+        onSubmit(event);
+      }
+    }
+  }
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   });
 
   const changeUrl = (event: any) => {
