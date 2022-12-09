@@ -5,11 +5,7 @@ import Subheading from "./Subheading";
 import axios from "axios";
 import { format } from "date-fns";
 
-interface DayRacesInput {
-  title: string;
-}
-
-export default function DayRaces({ title }: DayRacesInput) {
+export default function DayRaces() {
   const [data, setData] = useState([]);
 
   useEffect(() => {

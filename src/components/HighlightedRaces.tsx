@@ -14,7 +14,7 @@ export default function DayRaces() {
   }, []);
 
   return (
-    <Flex flexFlow={"column"} alignItems={"center"}>
+    <Flex pt={5} flexFlow={"column"} alignItems={"center"}>
       <Subheading text={"HIGHLIGHTS"} />
       <VStack
         boxShadow="0 0 5px 0px yellow"

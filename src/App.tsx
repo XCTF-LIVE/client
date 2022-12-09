@@ -4,7 +4,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HighlightedRaces from "./components/HighlightedRaces";
 import DayRaces from "./components/DayRaces";
-import WIP from "./components/WIP";
 import Form from "./components/Form";
 import Submimtted from "./components/Submitted";
 
@@ -51,13 +50,11 @@ function App({ raceJSON }: AppInput) {
   return (
     <ChakraProvider theme={theme}>
       <Router>
-        <WIP />
         <Navbar />
         <Form />
-        <Submimtted />
         <HighlightedRaces />
-        <DayRaces title={"Today"} />
-        <DayRaces title={"Yesterday (11/23/22)"} />
+        <DayRaces />
+        <Submimtted />
       </Router>
     </ChakraProvider>
   );

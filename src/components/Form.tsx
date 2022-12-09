@@ -49,35 +49,37 @@ export default function Form() {
   };
 
   return (
-    <Box
-      w={"fit-content"}
-      p={"5"}
-      rounded={"lg"}
-      bgColor={"secondary.700"}
-      alignItems={"center"}
-    >
-      <Subheading text={"Are we missing a race?"} />
-      <Flex w={"70%"} m={"auto"}>
-        <InputGroup size="md" mt={"5"}>
-          <Input
-            type="text"
-            placeholder="Race URL"
-            onChange={changeUrl}
-            value={state.url}
-            color={"white"}
-          />
-          <InputRightElement pr={"2"}>
-            <Button
-              backgroundColor={"transparent"}
+    <Flex mt={5} w={"100%"} justifyContent={"center"}>
+      <Box
+        w={"fit-content"}
+        p={"5"}
+        rounded={"lg"}
+        bgColor={"secondary.700"}
+        alignItems={"center"}
+      >
+        <Subheading text={"Are we missing a race?"} />
+        <Flex w={"70%"} m={"auto"}>
+          <InputGroup size="md" mt={"5"}>
+            <Input
+              type="text"
+              placeholder="Race URL"
+              onChange={changeUrl}
+              value={state.url}
               color={"white"}
-              size="sm"
-              onClick={onSubmit}
-            >
-              <FontAwesomeIcon icon={faShare} />
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-      </Flex>
-    </Box>
+            />
+            <InputRightElement pr={"2"}>
+              <Button
+                backgroundColor={"transparent"}
+                color={"white"}
+                size="sm"
+                onClick={onSubmit}
+              >
+                <FontAwesomeIcon icon={faShare} />
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+        </Flex>
+      </Box>
+    </Flex>
   );
 }
