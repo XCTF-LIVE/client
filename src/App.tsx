@@ -1,11 +1,12 @@
 import "./App.css";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { Box, Center, ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HighlightedRaces from "./components/HighlightedRaces";
 import DayRaces from "./components/DayRaces";
 import Form from "./components/Form";
 import Submimtted from "./components/Submitted";
+import Footer from "./components/Footer";
 
 // theme
 const theme = extendTheme({
@@ -51,10 +52,15 @@ function App({ raceJSON }: AppInput) {
     <ChakraProvider theme={theme}>
       <Router>
         <Navbar />
-        <Form />
-        <HighlightedRaces />
-        <DayRaces />
-        <Submimtted />
+        <Center>
+          <Box maxW={"1000px"}>
+            <Form />
+            <HighlightedRaces />
+            <DayRaces />
+            <Submimtted />
+          </Box>
+        </Center>
+        <Footer />
       </Router>
     </ChakraProvider>
   );

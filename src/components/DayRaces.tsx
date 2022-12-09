@@ -29,7 +29,7 @@ export default function DayRaces() {
       {uniqueGroups.map((group) => (
         <Flex pt={"5"} flexFlow={"column"} alignItems={"center"}>
           <Subheading
-            text={group === format(today, "MMMM d, y") ? "today" : group!}
+            text={group === format(today, "MMMM d, y") ? "Today" : group!}
           />
           <VStack
             w={"70%"}

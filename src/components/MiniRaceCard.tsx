@@ -4,8 +4,57 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { format } from "date-fns";
 import axios from "axios";
 
-const IMAGE =
-  "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png";
+const IMAGES = {
+  NYSPHAA:
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  "Section I":
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  "Section II":
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  "Section III":
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  "Section IV":
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  "Section V":
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  "Section VI":
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  "Section VII":
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  "Section VIII":
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  "Section IX":
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  "Section X":
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  "Section XI":
+    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+  FLORIDA:
+    "https://dbukjj6eu5tsf.cloudfront.net/fhsaa.org/images/responsive/main_logo_lg2.svg",
+  "CHAMPS SPORTS": "https://footlockercc.com/images/ChampsXCLogo.gif",
+  NEBRASKA:
+    "https://nebraskanewsservice.net/wp-content/uploads/2020/07/download-12.png",
+  CHICAGO:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Chicago_Athletic_Association_logo.svg/1200px-Chicago_Athletic_Association_logo.svg.png",
+};
+
+function returnImage(images: { [key: string]: string }, input: string) {
+  // Convert the input string to lowercase
+  // to avoid case-sensitivity issues
+  input = input.toLowerCase();
+
+  // Loop through the key-value pairs in the images object
+  for (const [key, value] of Object.entries(images)) {
+    // Check if the input string contains the key
+    if (input.includes(key.toLowerCase())) {
+      // If it does, return the corresponding value (the URL of the image)
+      return value;
+    }
+  }
+  // If the input string does not contain any of the keys,
+  // return undefined
+  return undefined;
+}
 
 type Item = {
   date: string;
@@ -44,7 +93,10 @@ export default function MiniRaceCard({ item }: { item: Item }) {
     >
       <HStack w={"100%"} justifyContent={"space-between"}>
         <Flex width={20} justifyContent={"right"}>
-          <Image objectFit={"cover"} src={IMAGE} />
+          <Image
+            objectFit={"cover"}
+            src={returnImage(IMAGES, item.name + " , " + item.location)}
+          />
         </Flex>
         <VStack alignItems={"left"} p={0} m={0}>
           <Text
@@ -65,12 +117,19 @@ export default function MiniRaceCard({ item }: { item: Item }) {
             </Text>
           </Text>
         </VStack>
-        <Flex width={20} justifyContent={"right"}>
+        <Flex
+          width={20}
+          justifyContent={"right"}
+          _hover={{
+            color: item.isHighlighted ? "#969326" : "#a1a1a1",
+          }}
+          color={item.isHighlighted ? "yellow" : "#666666"}
+          transitionDuration={"100ms"}
+        >
           <FontAwesomeIcon
             icon={faStar}
             onClick={() => toggleHighlight(item)}
             size={"lg"}
-            color={item.isHighlighted ? "yellow" : "#666666"}
           />
         </Flex>
       </HStack>

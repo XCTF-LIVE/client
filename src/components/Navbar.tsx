@@ -35,10 +35,10 @@ export default function Navbar() {
           fontSize="xl"
           fontWeight="extrabold"
           fontStyle={"italic"}
-          w={"150px"}
+          w={"200px"}
           href={""}
         >
-          XCTF.LIVE
+          XCTF.LIVE •
         </Link>
         <HStack as={"nav"} spacing={4}>
           <Link
@@ -57,14 +57,14 @@ export default function Navbar() {
             w="300px"
             type="tel"
             placeholder="Search for a race..."
-            _placeholder={{ color: "grays.700" }}
-            color={"grays.700"}
+            _placeholder={{ color: "grays.100" }}
+            color={"grays.100"}
             textAlign={"center"}
             rounded={"full"}
             border={"none"}
-            backgroundColor={"secondary.800"}
+            backgroundColor={"secondary.700"}
             _hover={{
-              backgroundColor: "secondary.700",
+              backgroundColor: "secondary.600",
             }}
           />
           <Link
@@ -87,7 +87,7 @@ export default function Navbar() {
             variant={"link"}
             cursor={"pointer"}
             minW={0}
-            w={"150px"}
+            w={"200px"}
             pl="100px"
             alignContent={"end"}
           >
@@ -99,10 +99,9 @@ export default function Navbar() {
             />
           </MenuButton>
           <MenuList>
-            <MenuItem>Link 1</MenuItem>
-            <MenuItem>Link 2</MenuItem>
+            <MenuItem>Submissions</MenuItem>
             <MenuDivider />
-            <MenuItem>Link 3</MenuItem>
+            <MenuItem>Logout</MenuItem>
           </MenuList>
         </Menu>
       </HStack>
