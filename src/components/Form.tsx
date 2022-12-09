@@ -73,6 +73,10 @@ export default function Form() {
                 color={"white"}
                 size="sm"
                 onClick={onSubmit}
+                _hover={{
+                  backgroundColor: "transparent",
+                  color: "gray",
+                }}
               >
                 <FontAwesomeIcon icon={faShare} />
               </Button>
