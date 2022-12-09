@@ -1,9 +1,30 @@
 import { Text, VStack, Image, HStack, Flex, Link } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { format } from "date-fns";
+import axios from "axios";
 
 const IMAGE =
   "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png";
 
-export default function MiniRaceCard() {
+type Item = {
+  date: string;
+  dateInput: string;
+  isHighlighted: boolean;
+  location: string;
+  name: string;
+  url: string;
+  _id: string;
+};
+
+export default function MiniRaceCard({ item }: { item: Item }) {
+  const toggleHighlight = (item: any) => {
+    axios
+      .post("http://localhost:4000/toggleracehighlight", {
+        document: item,
+      })
+      .then(() => window.location.reload());
+  };
   return (
     <Link
       display={"flex"}
@@ -12,47 +33,47 @@ export default function MiniRaceCard() {
       w={"100%"}
       p={5}
       bgColor="secondary.400"
-      borderRadius={"xl"}
       transitionDuration={"150ms"}
       _hover={{
         bgColor: "secondary.500",
         boxShadow: "lg",
       }}
-      href={"https://results.leonetiming.com/xc.html?mid=5251"}
+      borderBottomWidth={"2px"}
+      borderBottomColor={"secondary.600"}
+      href={item.url}
     >
-      <HStack>
-        <Image h={10} objectFit={"cover"} src={IMAGE} />
+      <HStack w={"100%"} justifyContent={"space-between"}>
+        <Flex width={20} justifyContent={"right"}>
+          <Image objectFit={"cover"} src={IMAGE} />
+        </Flex>
         <VStack alignItems={"left"} p={0} m={0}>
           <Text
-            fontSize={"xl"}
+            fontSize={"lg"}
             fontFamily={"body"}
             fontWeight={900}
             textTransform={"uppercase"}
             color={"grays.100"}
+            textAlign={"center"}
           >
-            2022 NYSPHAA XC Championships
+            {item.name}
             <Text
               color={"grays.300"}
               fontSize={"xs"}
               textTransform={"uppercase"}
             >
-              Letchworth State Park, NY
+              {item.location + " // " + format(new Date(item.date), "M/d")}
             </Text>
           </Text>
         </VStack>
+        <Flex width={20} justifyContent={"right"}>
+          <FontAwesomeIcon
+            icon={faStar}
+            onClick={() => toggleHighlight(item)}
+            size={"lg"}
+            color={item.isHighlighted ? "yellow" : "#666666"}
+          />
+        </Flex>
       </HStack>
-      <Flex
-        fontWeight={900}
-        fontSize={"sm"}
-        color={"white"}
-        textTransform={"uppercase"}
-        backgroundColor={"red.500"}
-        px={2}
-        borderRadius={100}
-        h={"min-content"}
-      >
-        LIVE •
-      </Flex>
     </Link>
   );
 }

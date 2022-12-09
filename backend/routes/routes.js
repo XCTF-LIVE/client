@@ -64,13 +64,30 @@ router.delete("/removesubmitted/:id", async (request, response) => {
   });
 });
 
-router.get("/official", async (request, response) => {
+router.get("/highlighted", async (request, response) => {
   officialRaceModel.find(
-    {},
+    { isHighlighted: true },
     null,
     {
       sort: {
-        isHighlighted: -1,
+        date: -1,
+      },
+    },
+    function (err, races) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      response.json(races);
+    }
+  );
+});
+router.get("/official", async (request, response) => {
+  officialRaceModel.find(
+    { isHighlighted: false },
+    null,
+    {
+      sort: {
         date: -1,
       },
     },

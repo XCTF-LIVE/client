@@ -6,7 +6,7 @@ interface SubheadingInput {
 
 export default function Subheading({ text }: SubheadingInput) {
   return (
-    <Center pt={5}>
+    <Center>
       <Heading
         fontWeight={900}
         color={"grays.300"}
