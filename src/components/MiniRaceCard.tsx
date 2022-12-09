@@ -8,27 +8,28 @@ const IMAGES = {
   NYSPHAA:
     "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
   "Section I":
-    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+    "https://www.ercsd.org/cms/lib/NY02205564/Centricity/Domain/1022/BocesLogo-black.png",
   "Section II":
-    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
-  "Section III":
-    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+    "https://dbukjj6eu5tsf.cloudfront.net/section2athletics.org/images/responsive/main_logo.svg",
+  "Section III": "https://section3.org/images/nav_logo_full.png",
   "Section IV":
-    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+    "https://cmsv2-assets.apptegy.net/uploads/8601/logo/9877/2eeca5251df5f5b4db947d3d80a1b083.png",
   "Section V":
-    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+    "https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_2/v1579137011/wflbocesorg/bq5jv4yb3zvfglrve7yd/SectionVathleticsLogo2018.png",
   "Section VI":
-    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+    "https://www.section6.e1b.org/cms/lib/NY19000854/Centricity/Template/GlobalAssets/images///Logos/New_Section_VI_Logo_NEW.png",
   "Section VII":
-    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+    "http://section7.org/wp-content/uploads/2022/10/SecVII_LogoApproved_nobkgd.png",
   "Section VIII":
-    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+    "https://production-gofan-assets.s3.amazonaws.com/uploads/school/logo/NYSPHSAA8/Logo2017.png",
   "Section IX":
-    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
-  "Section X":
-    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+    "https://production-gofan-assets.s3.amazonaws.com/uploads/school/logo/NYSPHSAA9/Section%209%20Logo.png",
+  "Section X ":
+    "https://cfunity-state-association-logos.nfhsnetwork.com/d8bf013e7f_p403.png",
   "Section XI":
-    "https://dbukjj6eu5tsf.cloudfront.net/nysphsaa.org/images/responsive_2021/main_logo-2.png",
+    "https://production-gofan-assets.s3.amazonaws.com/uploads/school/logo/NYSPHSAAXI/Logo_upload.png",
+  CHSAA:
+    "https://cdn1.sportngin.com/attachments/logo_graphic/6ef6-163770755/CatholicHSAthlAssoc_Crest_Blue_rev_medium.png",
   FLORIDA:
     "https://dbukjj6eu5tsf.cloudfront.net/fhsaa.org/images/responsive/main_logo_lg2.svg",
   "CHAMPS SPORTS": "https://footlockercc.com/images/ChampsXCLogo.gif",
@@ -80,9 +81,10 @@ export default function MiniRaceCard({ item }: { item: Item }) {
       justifyContent={"space-between"}
       alignItems={"center"}
       w={"100%"}
-      p={5}
+      px={5}
+      py={2}
       bgColor="secondary.400"
-      transitionDuration={"150ms"}
+      transitionDuration={"100ms"}
       _hover={{
         bgColor: "secondary.500",
         boxShadow: "lg",
@@ -124,7 +126,6 @@ export default function MiniRaceCard({ item }: { item: Item }) {
             color: item.isHighlighted ? "#969326" : "#a1a1a1",
           }}
           color={item.isHighlighted ? "yellow" : "#666666"}
-          transitionDuration={"100ms"}
         >
           <FontAwesomeIcon
             icon={faStar}

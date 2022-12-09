@@ -14,12 +14,22 @@ export default function DayRaces() {
     });
   }, []);
 
-  const today = new Date();
-  const groups = data.map((item: any) =>
-    new Date(item.date).getTime() <= today.getTime()
-      ? format(new Date(item.date), "MMMM d, y")
-      : undefined
-  );
+  let currentDate = new Date();
+  const groups = data.map((item: any) => {
+    let givenDate = new Date(item.date);
+
+    currentDate.setHours(0, 0, 0, 0);
+    givenDate.setHours(0, 0, 0, 0);
+    let minDate = new Date();
+    minDate.setTime(minDate.getTime() - 14 * 24 * 60 * 60 * 1000);
+
+    if (givenDate >= minDate && givenDate <= currentDate) {
+      return format(givenDate, "MMMM d, y");
+    } else {
+      return undefined;
+    }
+  });
+
   const uniqueGroups = groups.filter(
     (group, index) => groups.indexOf(group) === index
   );
@@ -29,7 +39,7 @@ export default function DayRaces() {
       {uniqueGroups.map((group) => (
         <Flex pt={"5"} flexFlow={"column"} alignItems={"center"}>
           <Subheading
-            text={group === format(today, "MMMM d, y") ? "Today" : group!}
+            text={group === format(currentDate, "MMMM d, y") ? "Today" : group!}
           />
           <VStack
             w={"70%"}
