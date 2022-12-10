@@ -37,6 +37,17 @@ const IMAGES = {
     "https://nebraskanewsservice.net/wp-content/uploads/2020/07/download-12.png",
   CHICAGO:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Chicago_Athletic_Association_logo.svg/1200px-Chicago_Athletic_Association_logo.svg.png",
+  MONROE: "https://mcpsac.org/wp-content/uploads/2020/05/mcpsacgoldnew-1.png",
+  PITTSFORD:
+    "http://www.pittsfordbasketballcamp.com/img/pittsford_basketball_camp_mendon_vikings_logo.png",
+  WALNUT:
+    "http://s3-us-west-2.amazonaws.com/sportshub2-uploads-prod/files/sites/2965/2021/02/22044618/WalnutHills_Logo.png",
+  USATF: "https://certifiedroadraces.com/.default/.assets/white-logo.png",
+  LANDOVER: "https://mercyathletics.com/images/logos/site/site.png",
+  BOWLING:
+    "https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Bowling_Green_Falcons_logo.svg/800px-Bowling_Green_Falcons_logo.svg.png",
+  HILLSIDE:
+    "https://lh3.googleusercontent.com/tJfwsT9by7O1chCTTSQSqTCI74yB1qCo_AlySzfOM4dnHD8QyKkQa_rpdOl_yNwb5TPPN2O6ry2qbtgEf4CwhuQ",
 };
 
 function returnImage(images: { [key: string]: string }, input: string) {
@@ -94,8 +105,9 @@ export default function MiniRaceCard({ item }: { item: Item }) {
       href={item.url}
     >
       <HStack w={"100%"} justifyContent={"space-between"}>
-        <Flex width={20} justifyContent={"right"}>
+        <Flex width={20} justifyContent={"center"}>
           <Image
+            height={10}
             objectFit={"cover"}
             src={returnImage(IMAGES, item.name + " , " + item.location)}
           />
