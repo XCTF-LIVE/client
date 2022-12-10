@@ -45,7 +45,7 @@ export default function Form() {
     };
     if (state.url.length) {
       axios
-        .post("http://localhost:4000/submitrace", registered)
+        .post("http://:4000/submitrace", registered)
         .then(() => {
           setState({
             url: "",

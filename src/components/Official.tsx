@@ -7,14 +7,16 @@ export default function Official() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/official").then((res) => {
-      setData(res.data);
-    });
+    axios
+      .get("https://xctf-live-backend.herokuapp.com/official")
+      .then((res) => {
+        setData(res.data);
+      });
   }, []);
 
   const toggleHighlight = (item: any) => {
     axios
-      .post("http://localhost:4000/toggleracehighlight", {
+      .post("https://xctf-live-backend.herokuapp.com/toggleracehighlight", {
         document: item,
       })
       .then(() => window.location.reload());

@@ -11,7 +11,7 @@ const Sumbitted = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/submitted")
+      .get("https://xctf-live-backend.herokuapp.com/submitted")
       .then((res) => {
         setData(res.data);
       })
@@ -20,7 +20,9 @@ const Sumbitted = () => {
 
   const removeItem = (item: any) => {
     axios
-      .delete("http://localhost:4000/removesubmitted/" + item._id)
+      .delete(
+        "https://xctf-live-backend.herokuapp.com/removesubmitted/" + item._id
+      )
       .then(() => {
         window.location.reload();
       });

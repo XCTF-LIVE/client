@@ -81,7 +81,7 @@ type Item = {
 export default function MiniRaceCard({ item }: { item: Item }) {
   const toggleHighlight = (item: any) => {
     axios
-      .post("http://localhost:4000/toggleracehighlight", {
+      .post("https://xctf-live-backend.herokuapp.com/toggleracehighlight", {
         document: item,
       })
       .then(() => window.location.reload());
