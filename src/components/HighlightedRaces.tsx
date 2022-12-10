@@ -48,7 +48,7 @@ export default function HighlightedRaces() {
       <VStack
         boxShadow="0 0 5px 0px yellow"
         w={"95%"}
-        maxW={"650px"}
+        maxW={"800px"}
         mt={1}
         spacing={3}
         overflow={"scroll"}

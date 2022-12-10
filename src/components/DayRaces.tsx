@@ -23,6 +23,7 @@ export default function DayRaces() {
 
   const groups = data.map((item: any) => {
     let givenDate = new Date(item.date);
+    givenDate.setDate(givenDate.getDate() + 1);
 
     currentDate.setHours(0, 0, 0, 0);
     givenDate.setHours(0, 0, 0, 0);
@@ -30,7 +31,7 @@ export default function DayRaces() {
     // edit 14 to change the least date 14
     minDate.setTime(minDate.getTime() - 14 * 24 * 60 * 60 * 1000);
     // switch || to && to create interval of shown races
-    if (givenDate >= minDate || givenDate <= currentDate) {
+    if (givenDate >= minDate && givenDate <= currentDate) {
       return format(givenDate, "MMMM d, y");
     } else {
       return undefined;
@@ -53,7 +54,7 @@ export default function DayRaces() {
             />
             <VStack
               w={"95%"}
-              maxW={"650px"}
+              maxW={"800px"}
               mt={1}
               spacing={3}
               overflow={"scroll"}
@@ -64,7 +65,12 @@ export default function DayRaces() {
                 {data
                   .filter(
                     (item: any) =>
-                      format(new Date(item.date), "MMMM d, y") === group
+                      format(
+                        new Date(item.date).setDate(
+                          new Date(item.date).getDate() + 1
+                        ),
+                        "MMMM d, y"
+                      ) === group
                   )
                   .map((item: any) => (
                     <ListItem key={item._id}>
@@ -87,7 +93,8 @@ export default function DayRaces() {
       <Flex pt={"10"} flexFlow={"column"} alignItems={"center"}>
         <Subheading text="Today" />
         <VStack
-          w={"70%"}
+          w={"95%"}
+          maxW={"800px"}
           mt={1}
           spacing={3}
           overflow={"scroll"}

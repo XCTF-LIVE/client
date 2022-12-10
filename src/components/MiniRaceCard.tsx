@@ -103,6 +103,7 @@ export default function MiniRaceCard({ item }: { item: Item }) {
       borderBottomWidth={"2px"}
       borderBottomColor={"secondary.600"}
       href={item.url}
+      target={"_blank"}
     >
       <HStack w={"100%"} justifyContent={"space-between"}>
         <Flex width={20} justifyContent={"center"}>
@@ -127,7 +128,14 @@ export default function MiniRaceCard({ item }: { item: Item }) {
               fontSize={"xs"}
               textTransform={"uppercase"}
             >
-              {item.location + " // " + format(new Date(item.date), "M/d")}
+              {item.location +
+                " // " +
+                format(
+                  new Date(item.date).setDate(
+                    new Date(item.date).getDate() + 1
+                  ),
+                  "M/d"
+                )}
             </Text>
           </Text>
         </VStack>
