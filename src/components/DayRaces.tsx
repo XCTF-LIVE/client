@@ -52,7 +52,8 @@ export default function DayRaces() {
               }
             />
             <VStack
-              w={"70%"}
+              w={"95%"}
+              maxW={"650px"}
               mt={1}
               spacing={3}
               overflow={"scroll"}

@@ -47,7 +47,8 @@ export default function HighlightedRaces() {
       <Subheading text={"HIGHLIGHTS"} />
       <VStack
         boxShadow="0 0 5px 0px yellow"
-        w={"70%"}
+        w={"95%"}
+        maxW={"650px"}
         mt={1}
         spacing={3}
         overflow={"scroll"}
