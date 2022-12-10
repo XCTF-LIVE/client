@@ -1,7 +1,7 @@
 {
-  "name": "signupbackend",
+  "name": "xctflivebackend",
   "version": "1.0.0",
-  "description": "sign up application",
+  "description": "xctflive backend",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"

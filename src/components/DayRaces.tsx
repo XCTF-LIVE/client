@@ -20,15 +20,17 @@ export default function DayRaces() {
   }, []);
 
   let currentDate = new Date();
+
   const groups = data.map((item: any) => {
     let givenDate = new Date(item.date);
 
     currentDate.setHours(0, 0, 0, 0);
     givenDate.setHours(0, 0, 0, 0);
     let minDate = new Date();
+    // edit 14 to change the least date 14
     minDate.setTime(minDate.getTime() - 14 * 24 * 60 * 60 * 1000);
-
-    if (givenDate >= minDate && givenDate <= currentDate) {
+    // switch || to && to create interval of shown races
+    if (givenDate >= minDate || givenDate <= currentDate) {
       return format(givenDate, "MMMM d, y");
     } else {
       return undefined;
