@@ -82,7 +82,7 @@ export default function MiniRaceCard({ item }: { item: Item }) {
   const toggleHighlight = (item: any) => {
     axios
       .post(
-        process.env.REACT_APP_SERVER_API_URL_RACE + "/toggleracehighlight",
+        process.env.https://xctf-live-backend.herokuapp.com/race + "/toggleracehighlight",
         {
           document: item,
         }
