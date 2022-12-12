@@ -96,21 +96,19 @@ export default function MiniRaceCard({ item }: { item: Item }) {
       target={"_blank"}
     >
       <HStack w={"100%"}>
-        <Flex width={"10%"} justifyContent={"center"}>
+        <Flex width={"16%"} justifyContent={"center"}>
           <Image
             height={10}
             objectFit={"cover"}
             src={returnImage(IMAGES, item.name + " , " + item.location)}
           />
         </Flex>
-        <VStack alignItems={"left"} p={0} m={0}>
+        <VStack>
           <Text
             fontSize={"lg"}
-            fontFamily={"body"}
             fontWeight={900}
             textTransform={"uppercase"}
             color={"grays.100"}
-            textAlign={"left"}
           >
             {item.name}
             <Text
