@@ -44,7 +44,7 @@ export default function HighlightedRaces() {
 
   return (
     <Flex pt={5} flexFlow={"column"} alignItems={"center"}>
-      <Subheading text={"HIGHLIGHTS"} />
+      <Subheading text={"PINNED"} />
       <VStack
         boxShadow="0 0 5px 0px yellow"
         w={"95%"}
