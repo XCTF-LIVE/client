@@ -11,7 +11,7 @@ const Sumbitted = () => {
 
   useEffect(() => {
     axios
-      .get("https://xctf-live-backend.herokuapp.com/submitted")
+      .get(process.env.REACT_APP_SERVER_API_URL_RACE + "/submitted")
       .then((res) => {
         setData(res.data);
       })
@@ -21,7 +21,9 @@ const Sumbitted = () => {
   const removeItem = (item: any) => {
     axios
       .delete(
-        "https://xctf-live-backend.herokuapp.com/removesubmitted/" + item._id
+        process.env.REACT_APP_SERVER_API_URL_RACE +
+          "/removesubmitted/" +
+          item._id
       )
       .then(() => {
         window.location.reload();

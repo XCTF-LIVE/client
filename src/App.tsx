@@ -1,4 +1,3 @@
-import "./App.css";
 import { Box, Center, ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/Navbar";
