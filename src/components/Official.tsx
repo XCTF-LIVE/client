@@ -8,7 +8,7 @@ export default function Official() {
 
   useEffect(() => {
     axios
-      .get("https://xctf-live-backend.herokuapp.com/race" + "/official")
+      .get("https://xctf-live-backend.herokuapp.com/race/official")
       .then((res) => {
         setData(res.data);
       });
@@ -17,7 +17,7 @@ export default function Official() {
   const toggleHighlight = (item: any) => {
     axios
       .post(
-        "https://xctf-live-backend.herokuapp.com/race" + "/toggleracehighlight",
+        "https://xctf-live-backend.herokuapp.com/race/toggleracehighlight",
         {
           document: item,
         }

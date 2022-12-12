@@ -1,8 +1,5 @@
 import { Text, VStack, Image, HStack, Flex, Link } from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { format } from "date-fns";
-import axios from "axios";
 
 const IMAGES = {
   NYSPHAA:
@@ -65,7 +62,7 @@ function returnImage(images: { [key: string]: string }, input: string) {
   }
   // If the input string does not contain any of the keys,
   // return undefined
-  return undefined;
+  return "https://cdn-icons-png.flaticon.com/512/308/308932.png";
 }
 
 type Item = {
@@ -79,16 +76,6 @@ type Item = {
 };
 
 export default function MiniRaceCard({ item }: { item: Item }) {
-  const toggleHighlight = (item: any) => {
-    axios
-      .post(
-        "https://xctf-live-backend.herokuapp.com/race" + "/toggleracehighlight",
-        {
-          document: item,
-        }
-      )
-      .then(() => window.location.reload());
-  };
   return (
     <Link
       display={"flex"}
@@ -108,8 +95,8 @@ export default function MiniRaceCard({ item }: { item: Item }) {
       href={item.url}
       target={"_blank"}
     >
-      <HStack w={"100%"} justifyContent={"space-between"}>
-        <Flex width={20} justifyContent={"center"}>
+      <HStack w={"100%"}>
+        <Flex width={"10%"} justifyContent={"center"}>
           <Image
             height={10}
             objectFit={"cover"}
@@ -123,7 +110,7 @@ export default function MiniRaceCard({ item }: { item: Item }) {
             fontWeight={900}
             textTransform={"uppercase"}
             color={"grays.100"}
-            textAlign={"center"}
+            textAlign={"left"}
           >
             {item.name}
             <Text
@@ -142,20 +129,6 @@ export default function MiniRaceCard({ item }: { item: Item }) {
             </Text>
           </Text>
         </VStack>
-        <Flex
-          width={20}
-          justifyContent={"right"}
-          _hover={{
-            color: item.isHighlighted ? "#969326" : "#a1a1a1",
-          }}
-          color={item.isHighlighted ? "yellow" : "#666666"}
-        >
-          <FontAwesomeIcon
-            icon={faStar}
-            onClick={() => toggleHighlight(item)}
-            size={"lg"}
-          />
-        </Flex>
       </HStack>
     </Link>
   );

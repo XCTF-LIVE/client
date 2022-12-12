@@ -1,11 +1,10 @@
-import Form from "../components/Form";
-import Sumbitted from "../components/Submitted";
+import { Flex } from "@chakra-ui/react";
+import Subheading from "../components/Subheading";
 
 export default function Ratings() {
   return (
-    <>
-      <Form />
-      <Sumbitted />
-    </>
+    <Flex h={"100vh"} justifyContent={"center"}>
+      <Subheading text="Coming Soon..." />
+    </Flex>
   );
 }

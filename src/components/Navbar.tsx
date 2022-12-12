@@ -1,16 +1,4 @@
-import {
-  Flex,
-  Avatar,
-  HStack,
-  Link,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  Input,
-} from "@chakra-ui/react";
+import { Flex, HStack, Link, Button, Input, Box } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
@@ -100,30 +88,16 @@ export default function Navbar() {
               <FontAwesomeIcon icon={solid("person-running")} size={"lg"} />
             </Link>
           </HStack>
-          <Menu>
-            <MenuButton
-              as={Button}
-              rounded={"full"}
-              variant={"link"}
-              cursor={"pointer"}
-              minW={0}
-              w={"200px"}
-              pl="100px"
-              alignContent={"end"}
-            >
-              <Avatar
-                size={"sm"}
-                src={
-                  "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
-                }
-              />
-            </MenuButton>
-            <MenuList>
-              <MenuItem>Submissions</MenuItem>
-              <MenuDivider />
-              <MenuItem>Logout</MenuItem>
-            </MenuList>
-          </Menu>
+          <Box
+            as={Button}
+            rounded={"full"}
+            variant={"link"}
+            cursor={"pointer"}
+            minW={0}
+            w={"200px"}
+            pl="100px"
+            alignContent={"end"}
+          ></Box>
         </HStack>
       </Flex>
     );
