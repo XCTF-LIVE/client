@@ -12,7 +12,7 @@ export default function DayRaces() {
 
   useEffect(() => {
     axios
-      .get(process.env.https://xctf-live-backend.herokuapp.com/race + "/official")
+      .get("https://xctf-live-backend.herokuapp.com/race" + "/official")
       .then((res) => {
         setData(res.data);
       })
