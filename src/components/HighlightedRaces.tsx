@@ -11,7 +11,7 @@ export default function HighlightedRaces() {
 
   useEffect(() => {
     axios
-      .get("https://xctf-live-backend.herokuapp.com/race/highlighted")
+      .get("http://api.xctf.live/race/highlighted")
       .then((res) => {
         setData(res.data);
       })

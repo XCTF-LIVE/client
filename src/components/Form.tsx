@@ -45,10 +45,7 @@ export default function Form() {
     };
     if (state.url.length) {
       axios
-        .post(
-          "https://xctf-live-backend.herokuapp.com/race/submitrace",
-          registered
-        )
+        .post("http://api.xctf.live/race/submitrace", registered)
         .then(() => {
           setState({
             url: "",
