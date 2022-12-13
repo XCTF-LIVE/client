@@ -12,7 +12,9 @@ export default function SmallWithSocial() {
       textAlign={"center"}
       fontSize={"xs"}
     >
-      © 2022 XCTF LIVE. All rights reserved
+      © 2022 XCTF LIVE. All rights reserved.
+      <br />
+      <a href="mailto:admin@xctf.live">admin@xctf.live</a>
     </Box>
   );
 }
