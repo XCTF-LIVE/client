@@ -28,8 +28,8 @@ export default function DayRaces() {
     currentDate.setHours(0, 0, 0, 0);
     givenDate.setHours(0, 0, 0, 0);
     let minDate = new Date();
-    // edit 14 to change the least date 14
-    minDate.setTime(minDate.getTime() - 14 * 24 * 60 * 60 * 1000);
+    // edit 365 to change the least date
+    minDate.setTime(minDate.getTime() - 365 * 24 * 60 * 60 * 1000);
     // switch || to && to create interval of shown races
     if (givenDate >= minDate && givenDate <= currentDate) {
       return format(givenDate, "MMMM d, y");
